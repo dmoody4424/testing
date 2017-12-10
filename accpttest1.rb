@@ -5,12 +5,12 @@ browser = Watir::Browser.new :chrome
 
 $b.goto 'https://jungle-socks,herokuapp.com'
 #checks each component of page
-assert($b.table(:class, "line_item zebra").exists?), "Zebra Socks not found"
-assert($b.table(:class, "line_item lion").exists?),  "Lion Socks not found"
-assert($b.table(:class, "line_item elephant").exists?), "Elephant Socks not found"
-assert($b.table(:class, "line_item giraffe").exists?), "Giraffe Socks not found"
-assert($b.table(:text, "Ship to State").exists?), "State Selector not found"
-assert($b.input):value, "checkout").exists?), "Checkout button not found"
+assert($b.table(:class, "line_item zebra").exists?); "Zebra Socks not found"
+assert($b.table(:class, "line_item lion").exists?);  "Lion Socks not found"
+assert($b.table(:class, "line_item elephant").exists?); "Elephant Socks not found"
+assert($b.table(:class, "line_item giraffe").exists?); "Giraffe Socks not found"
+assert($b.table(:text, "Ship to State").exists?); "State Selector not found"
+assert($b.input(:value, "checkout").exists?); "Checkout button not found"
 
 #verifies sales tax
 config = testdata.config
@@ -31,9 +31,10 @@ a = $b.text_field(:id, "subtotal").value
 b = $b.text_field(:id, "taxes").value
 
 if b == a * value
-puts "Sales tax for " + state " correct."
+puts "Sales tax for #{state} correct."
 else
-puts "Sales tax for " + state " incorrect!"
+puts "Sales tax for #{state} incorrect!"
+end
 
 end
 
